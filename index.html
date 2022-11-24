@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Game</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>BRAIN GAME</h1>
+
+        <div class="nav">
+            <a class="btn" href="./Game_1/index.html">Game 1</a>
+            <a class="btn" href="./Game_2/index.html">Game 2</a>
+            <a class="btn" href="./Game_3/index.html">Game 3</a>
+        </div>
+        <div class="instructions"></div>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.13.1/TweenMax.min.js"></script>
+
+    <script>
+        TweenMax.staggerFrom("a", 2, { scale: 0.5, opacity: 0, delay: 0.5, ease: Elastic.easeOut, force3D: true }, 0.2);
+
+        $("a").click(function () {
+            TweenMax.staggerTo("a", 0.5, { opacity: 0, y: -100, ease: Back.easeIn }, 0.1);
+        });
+    </script>
+</body>
+
+</html>

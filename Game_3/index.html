@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculating Game in JavaScript</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="game">
+        <div class="controls">
+            <label for="">Cấp độ: </label>
+            <select name="level" id="level">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <button id="start">Bắt đầu</button>
+            <div class="stats">
+                <div class="timer">thời gian: <span id="time">0</span> giây</div>
+            </div>
+        </div>
+
+        <div class="display">
+
+        </div>
+
+        <div class="board-container">
+            <div class="output">
+
+            </div>
+            <button data-number id="1">1</button>
+            <button data-number id="2">2</button>
+            <button data-number id="3">3</button>
+            <button data-number id="4">4</button>
+            <button data-number id="5">5</button>
+            <button data-number id="6">6</button>
+            <button data-number id="7">7</button>
+            <button data-number id="8">8</button>
+            <button data-number id="9">9</button>
+            <button id="clear">❌</button>
+            <button data-number id="0">0</button>
+            <button id="enter">✔️</button>
+        </div>
+
+    </div>
+
+    <section>
+        <button class="show-modal">Test Show Modal</button>
+        <span class="overlay"></span>
+
+        <div class="modal-box">
+            <i class="fa-regular fa-circle-check"></i>
+            <h2><span id="result">0</span> </h2>
+            <h3>You have successfully downloaded all the source code files.</h3>
+
+            <div class="buttons">
+                <button class="close-btn">Đóng</button>
+                <button class="con-btn">Tiếp tục</button>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+
+
+
+    </script>
+
+</body>
+
+</html>
