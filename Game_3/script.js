@@ -1,16 +1,17 @@
 const selectors = {
     boardContainer: document.querySelector('.board-container'),
     moves: document.querySelector('.moves'),
-    timer: document.querySelector('.timer'),
+    timer: document.querySelector('#timer'),
     start: document.querySelector('#start'),
     win: document.querySelector('.win'),
-    level: document.querySelector('.level') ,
     numberButtons: document.querySelectorAll('[data-number]'),
     output: document.querySelector('.output'),
     clear: document.querySelector('#clear'),
     enter: document.querySelector('#enter'),
     display: document.querySelector('.display')
 }
+
+const levelSelect = document.querySelector('#level');
 
 const section = document.querySelector("section"),
             overlay = document.querySelector(".overlay"),
@@ -23,10 +24,19 @@ const section = document.querySelector("section"),
 const state = {
     gameStarted: false,
     objective: 0,
-    loop: null
+    loop: null,
+    pauseTimer: false,
+    time: 30
 }
 
+
 const difficulty = [ 
+    {
+        level: '0',
+        operator: 'add',
+        min: 3,
+        max: 10
+    },
     {
         level: '1',
         operator: 'add',
@@ -89,28 +99,28 @@ const difficulty = [
     }
 ]
 
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10)
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-}
 
 let number = Math.ceil(Math.random() * 9 + 1)
 
+function countdown() {
+    state.timeLeft--;
+    selectors.timer.innerHTML = String( state.timeLeft );
+    if (!state.pauseTimer) {
+        if (state.timeLeft > 0) {
+            setTimeout(countdown, 1000);
+        } else {
+            result.textContent = "Hết thời gian";
+            section.classList.add("active")
+        }
+    }
+};
+
+
 function generateGame() {
 
-    const currentLevel = difficulty[level.value];
+    const currentLevel = difficulty[levelSelect.value];
+
+    state.timeLeft = 20;
 
     console.log(number)
 
@@ -132,13 +142,22 @@ function generateGame() {
             selectors.display.classList.add('green')
         }, 2000)
 
+        selectors.display.classList.remove('green')
+
     } else {
         state.objective = number - target;
         setTimeout(function() {
             selectors.display.innerText = target;
             selectors.display.classList.add('red')
         }, 2000)
+
+        selectors.display.classList.remove('red')
+
     }
+
+    state.pauseTimer = false;
+
+    setTimeout(countdown(state.timeLeft), 1000);
 
 
 }
@@ -170,7 +189,7 @@ selectors.numberButtons.forEach(button => {
 //  press the start button event 
 selectors.start.addEventListener('click', generateGame, () => {
     const time = document.querySelector('#time')
-    startTimer(30, time)
+    startTimer(20, time)
 });
 
 //  press the clear button event 
@@ -184,16 +203,21 @@ selectors.enter.addEventListener('click', () => {
     if (selectors.output.innerText == '') {
         selectors.output.innerText = 'Empty'
     } else if (selectors.output.innerText == state.objective) {
-        result.textContent = "Đúng";
+        result.textContent = "Bạn đã trả lời Đúng";
         section.classList.add("active");   
     } else {
-        result.textContent = "Sai";
+        result.textContent = "Bạn đã trả lời Sai";
         section.classList.add("active"); 
     }
+
+    selectors.display.innerText = ""
+    selectors.output.innerText = ""
+
+    state.pauseTimer = true;
 })
 
 // modal box events
-showBtn.addEventListener("click", () => section.classList.add("active"));
+// showBtn.addEventListener("click", () => section.classList.add("active"));
 
 overlay.addEventListener("click", () =>
     section.classList.remove("active")
@@ -206,9 +230,11 @@ closeBtn.addEventListener("click", () =>
 conBtn.addEventListener("click", () => {
     section.classList.remove("active")
 
-    level.value =+ 1;
+    levelSelect.value++ ;
+    console.log(`level value: ${level.value}`)
 
     generateGame();
+
 })
 
 
