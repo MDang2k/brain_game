@@ -1,60 +1,54 @@
-body, html {
-    background: linear-gradient(325deg,  #6f00fc 0%,#fc7900 50%,#fcc700 100%);
-    color:#efefef;
-    height:100%;
+body,
+html {
+    background: url(./img/bg01.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #efefef;
+    height: 100vh;
     font-family: 'Source Sans Pro', sans-serif;
-  }
-
+}
 
 .container {
-  padding: 50px;
-  position:relative;
-  width:400px;
-  margin:auto;
-  overflow:hidden;
-  background-color:#1d1d1d;
-  height:80vh;
-  text-align: center;
+    padding: 50px;
+    position: relative;
+    width: 400px;
+    margin: auto;
+    overflow: hidden;
+    background: url(./img/wood_bg.jpg);
+    border-color: rgb(167, 101, 14);
+    border-width: 10px;
+    border-style: ridge;
+    border-radius: 5px;
+    height: 80vh;
+    text-align: center;
+}
+
+.container a {
+    display: block;
+    text-decoration: none;
+    color: #efefef;
+    font-size: 2rem;
+    padding: 25px 40px;
+    margin-bottom: 40px;
+    background-color: #282A3A;
 }
 
 .nav {
-  text-align: center;
-  margin: 50% 20px;
+    text-align: center;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
-  font-size: 56px;
+    color: #ca53c2;
+    font-family: 'Lobster', cursive;
+    font-size: 56px;
 }
-
-li {
-  border: none;
-  text-align: center;
-  cursor: pointer;
-  margin: 25px 40px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 700;
-  outline: none;
-  position: relative;
-  border: solid 1px transparent;
-  border-radius:10px;
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  display: block;
-  text-decoration: none;
-  color: #efefef;
-  font-size: 2rem;
-  padding: 25px 40px;
-  margin-bottom: 40px;
-  background-color:#282A3A;
-
-}
-
 
 .instructions {
-  text-align:center;
-  margin-top:10px;
-  
+    text-align: center;
+    margin-top: 10px;
 }
