@@ -1,7 +1,7 @@
 html {
     width: 100%;
     height: 100%;
-    background: url(../img/bg03.jpg);
+    background: url(../img/bg01.jpg);
     background-size: cover;
     background-position: center;
     font-family: 'Source Sans Pro', sans-serif;
@@ -47,7 +47,7 @@ section.active .overlay {
     align-items: center;
     max-width: 380px;
     width: 100%;
-    padding: 30px 20px;
+    padding: 30px 10px;
     border-radius: 24px;
     background-color: #fff;
     opacity: 0;
@@ -99,7 +99,7 @@ section.active .modal-box {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px;
+    padding: 50px;
     background: url(../img/wood_bg.jpg);
     border-color: rgb(167, 101, 14);
     border-width: 10px;
@@ -141,7 +141,13 @@ button {
 }
 
 .number {
+    background: url(../img/wooden_bg2.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 12px 20px;
     margin: 10px;
+    cursor: pointer;
 }
 
 button {
@@ -150,16 +156,4 @@ button {
     background: #282A3A;
     transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
     backface-visibility: hidden;
-}
-
-.display {
-    height: 100px;
-    background: url(../img/wooden_bg2.png);
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    color: white;
-    font-size: 3rem;
-    text-align: center;
-    padding-top: 50px;
 }
